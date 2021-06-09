@@ -34,7 +34,7 @@ const App = () => {
 
 		return res.data;
 	};
-	const changeDone = async (todo, bool) => {
+	const changeDone = async (todo, bool, last = true) => {
 		const res = await fetch(
 			`https://todo-halo.herokuapp.com/todos/${todo.id}`,
 			{
@@ -43,23 +43,28 @@ const App = () => {
 				body: JSON.stringify({ content: todo.content, isDone: bool }),
 			}
 		);
-		if (res.ok) setChange(true);
+		if (res.ok && last) setChange(true);
 		return res.data;
 	};
 	const markAll = () => {
-		todos.forEach((each) => changeDone(each, allTrue));
+		todos.forEach((each, idx) => {
+			if (idx === todos.length - 1) changeDone(each, allTrue);
+			else changeDone(each, allTrue, false);
+		});
 		setAllTrue(!allTrue);
 	};
-	const deleteItem = async (id) => {
-		const res = await fetch(`https://todo-halo.herokuapp.com/todos/${id}`, {
+	const deleteItem = async (id, last = true) => {
+		await fetch(`https://todo-halo.herokuapp.com/todos/${id}`, {
 			method: 'DELETE',
 			headers: { 'Content-Type': 'application/json' },
 		});
-		if (res) setChange(true);
+		if (last) setChange(true);
 	};
 	const deleteAll = () => {
-		todos.forEach((each) => {
-			if (each.isDone) return deleteItem(each.id);
+		let filtered = todos.filter((each) => each.isDone);
+		filtered.forEach((each, idx) => {
+			if (idx === filtered.length - 1) return deleteItem(each.id);
+			else return deleteItem(each.id, false);
 		});
 	};
 	return (
