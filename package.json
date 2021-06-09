@@ -9,7 +9,7 @@
     "build-watch": "webpack -w",
     "start-dev": "npm run build-watch & npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -b main"
   },
   "author": "lesliemeng",
   "license": "ISC",
