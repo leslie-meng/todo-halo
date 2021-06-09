@@ -36,6 +36,14 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/bundle.js.map" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/bundle.js.map",
+      "oF" : 0
+    },
     "\/client\/components\/App.js" : {
       "bF" : 0,
       "ft" : 64,
