@@ -41,7 +41,7 @@
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
-      "oA" : 0,
+      "oA" : 1,
       "oAP" : "\/client\/components\/Filter-min.js",
       "oF" : 0,
       "sC" : 3,
