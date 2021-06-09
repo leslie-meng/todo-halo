@@ -176,6 +176,18 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/public\/scss\/_fonts.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/scss\/_fonts-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/public\/scss\/_fonts.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -244,6 +256,33 @@
       "oF" : 0,
       "pg" : 0
     },
+    "\/README.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/README.html",
+      "oF" : 0
+    },
+    "\/README.md" : {
+      "cB" : 0,
+      "cS" : 0,
+      "eF" : 1,
+      "eL" : 1,
+      "ema" : 1,
+      "eSQ" : 1,
+      "ft" : 4096,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/README.html",
+      "oF" : 0,
+      "oFM" : 0,
+      "oS" : 0,
+      "pHT" : 0,
+      "pME" : 1,
+      "rFN" : 0,
+      "uCM" : 0
+    },
     "\/server\/index.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -254,6 +293,16 @@
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
+    },
+    "\/todos.gif" : {
+      "ft" : 4194304,
+      "iS" : 103711,
+      "oA" : 0,
+      "oAP" : "\/todos.gif",
+      "oF" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "rq" : 75
     },
     "\/webpack.config.js" : {
       "bF" : 0,
