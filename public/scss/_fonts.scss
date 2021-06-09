@@ -1,0 +1,6 @@
+@mixin google-font($family, $weight) {
+	@import url('https://fonts.googleapis.com/css2?family=#{$family}:wght@#{$weight}&display=swap');
+}
+@include google-font('Inter', 200);
+@include google-font('Inter', 300);
+$inter: Inter, sans-serif;

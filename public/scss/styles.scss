@@ -1,0 +1,27 @@
+@use '_fonts';
+@use '_todo';
+body {
+	background-color: #e5e5e5;
+}
+header {
+	display: flex;
+	justify-content: center;
+}
+.header__text {
+	font-family: fonts.$inter;
+	font-weight: 200;
+	font-size: 100px;
+	line-height: 121px;
+	color: #000;
+}
+.content {
+	width: 100%;
+	margin: auto;
+	background-color: white;
+}
+
+@media only screen and (min-width: 650px) {
+	.content {
+		width: 627px;
+	}
+}

@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+.todo {
+  position: relative;
+  top: 0;
+  width: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  align-items: center;
+  border: 1px solid #dfdfdf;
+}
+.todo:hover .todo__delete {
+  visibility: visible;
+}
+
+.todo__box {
+  width: 29px;
+  height: 28px;
+  border: 2px solid black;
+  position: relative;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+}
+
+.todo__box--checked {
+  width: 29px;
+  height: 28px;
+  border: 2px solid #71f2a5;
+  position: relative;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  position: relative;
+}
+.todo__box--checked::before {
+  content: "✓";
+  color: #71f2a5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.todo__desc {
+  color: black;
+  position: relative;
+  width: 80%;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+}
+
+.todo__desc--strike {
+  color: rgba(0, 0, 0, 0.35);
+  position: relative;
+  width: 80%;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+  text-decoration: line-through;
+}
+
+.todo__delete {
+  visibility: hidden;
+  color: #d65959;
+  font-family: Inter, sans-serif;
+  font-size: 24px;
+}
+
+body {
+  background-color: #e5e5e5;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.header__text {
+  font-family: Inter, sans-serif;
+  font-weight: 200;
+  font-size: 100px;
+  line-height: 121px;
+  color: #000;
+}
+
+.content {
+  width: 100%;
+  margin: auto;
+  background-color: white;
+}
+
+@media only screen and (min-width: 650px) {
+  .content {
+    width: 627px;
+  }
+}

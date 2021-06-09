@@ -1,0 +1,59 @@
+@use '_fonts';
+@mixin box($border: black) {
+	width: 29px;
+	height: 28px;
+	border: 2px solid $border;
+	position: relative;
+	font-family: fonts.$inter;
+	font-size: 24px;
+}
+@mixin todo-text($textColor: black) {
+	color: $textColor;
+	position: relative;
+	width: 80%;
+	font-family: fonts.$inter;
+	font-size: 24px;
+}
+.todo {
+	position: relative;
+	top: 0;
+	width: 100%;
+	justify-content: space-evenly;
+	display: flex;
+	align-items: center;
+	border: 1px solid #dfdfdf;
+	&:hover {
+		.todo__delete {
+			visibility: visible;
+		}
+	}
+}
+.todo__box {
+	@include box;
+}
+.todo__box--checked {
+	@include box($border: #71f2a5);
+	position: relative;
+	&::before {
+		content: '\2713';
+		color: #71f2a5;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}
+.todo__desc {
+	@include todo-text;
+}
+.todo__desc--strike {
+	@include todo-text($textColor: rgba(0, 0, 0, 0.35));
+	text-decoration: line-through;
+}
+.todo__delete {
+	visibility: hidden;
+	color: #d65959;
+	font-family: fonts.$inter;
+	font-size: 24px;
+}
