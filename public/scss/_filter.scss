@@ -1,0 +1,44 @@
+@use '_todo';
+@use '_fonts';
+
+@mixin filterFont() {
+	font-family: fonts.$inter;
+	font-weight: 200;
+	font-size: 14px;
+}
+@mixin filterButton() {
+	margin: 2px 5px;
+	@include filterFont;
+	border: 1px solid rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	&:hover {
+		border-color: black;
+	}
+}
+
+.filter {
+	@include todo.alignedBox;
+	@include filterFont;
+	box-sizing: border-box;
+	justify-content: space-between;
+	padding: 0 2.5%;
+}
+.filter__button {
+	@include filterButton;
+}
+.filter__text {
+	width: 20%;
+}
+.filter__button--active {
+	@include filterButton;
+	border: 1px solid black;
+}
+.filter__buttonDiv {
+	display: flex;
+	flex-flow: row wrap;
+	width: 40%;
+	justify-content: center;
+}
+.filter__complete {
+	width: 20%;
+}

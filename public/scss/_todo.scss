@@ -1,11 +1,24 @@
 @use '_fonts';
-@mixin box($border: black) {
+@mixin box($border: #dfdfdf) {
 	width: 29px;
 	height: 28px;
 	border: 2px solid $border;
 	position: relative;
 	font-family: fonts.$inter;
 	font-size: 24px;
+	margin: 0 5px;
+	&:hover {
+		&::before {
+			text-align: center;
+			content: '\2713';
+			position: absolute;
+			color: $border;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
 }
 @mixin todo-text($textColor: black) {
 	color: $textColor;
@@ -13,15 +26,23 @@
 	width: 80%;
 	font-family: fonts.$inter;
 	font-size: 24px;
+	font-weight: 300;
 }
-.todo {
+@mixin alignedBox($border: #dfdfdf) {
+	background-color: white;
 	position: relative;
 	top: 0;
 	width: 100%;
+	min-height: 65px;
 	justify-content: space-evenly;
 	display: flex;
+	flex-flow: row wrap;
 	align-items: center;
-	border: 1px solid #dfdfdf;
+	border-bottom: 1px solid $border;
+	box-sizing: border-box;
+}
+.todo {
+	@include alignedBox;
 	&:hover {
 		.todo__delete {
 			visibility: visible;
@@ -35,6 +56,7 @@
 	@include box($border: #71f2a5);
 	position: relative;
 	&::before {
+		text-align: center;
 		content: '\2713';
 		color: #71f2a5;
 		position: absolute;
@@ -42,6 +64,19 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+	}
+	&:hover {
+		border-color: black;
+		&::before {
+			text-align: center;
+			content: '\2713';
+			color: #dfdfdf;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
 	}
 }
 .todo__desc {

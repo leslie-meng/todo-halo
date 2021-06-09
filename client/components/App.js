@@ -68,40 +68,44 @@ const App = () => {
 				<h1 className='header__text'>Todos</h1>
 			</header>
 			<section className='content'>
-				<section className='form'>
+				<section className='formTop'>
 					<button
-						className={todos ? 'form__toggle--active' : 'form__toggle'}
+						className={
+							todos.length ? 'formTop__toggle--active' : 'formTop__toggle'
+						}
 						onClick={markAll}
 					>
-						{'>'}
+						{'❯'}
 					</button>
-					<form onSubmit={handleSubmit}>
+					<form onSubmit={handleSubmit} className='form'>
 						<input
 							type='text'
 							onChange={(event) => setInput(event.target.value)}
 							value={input}
-							className='form__input'
 							placeholder='What needs to be done?'
+							className='form__input'
 						></input>
 					</form>
 				</section>
 				{todos && todos.length ? (
 					<>
-						{todos.map((each) => {
-							if (filter === 'all' || filter == `${each.isDone}`) {
-								count += 1;
-								return (
-									<SingleTodo
-										content={each.content}
-										isDone={each.isDone}
-										key={each.id}
-										id={each.id}
-										handleClick={changeDone}
-										delete={deleteItem}
-									/>
-								);
-							}
-						})}
+						<section className='content__todos'>
+							{todos.map((each) => {
+								if (filter === 'all' || filter == `${each.isDone}`) {
+									count += 1;
+									return (
+										<SingleTodo
+											content={each.content}
+											isDone={each.isDone}
+											key={each.id}
+											id={each.id}
+											handleClick={changeDone}
+											delete={deleteItem}
+										/>
+									);
+								}
+							})}
+						</section>
 						<Filter
 							deleteAll={deleteAll}
 							count={count}

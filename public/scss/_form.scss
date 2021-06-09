@@ -1,0 +1,43 @@
+@use '_todo';
+@use '_fonts';
+
+@mixin check() {
+	transform: rotate(90deg);
+	font-family: fonts.$inter;
+	font-weight: 400;
+	font-size: 24px;
+	text-align: center;
+	border: none;
+	background-color: rgba(0, 0, 0, 0);
+}
+.formTop {
+	@include todo.alignedBox;
+}
+
+.formTop__toggle--active {
+	@include check;
+}
+
+.formTop__toggle {
+	@include check;
+	visibility: hidden;
+}
+.form {
+	position: relative;
+	width: calc(100% - 80px);
+}
+.form__input {
+	position: relative;
+	width: 100%;
+	font-style: italic;
+	font-family: fonts.$inter;
+	font-size: 24px;
+	font-weight: 200;
+	border: none;
+	&:focus {
+		outline-color: rgba(0, 0, 0, 0.4);
+	}
+	&::placeholder {
+		color: rgba(0, 0, 0, 0.4);
+	}
+}
