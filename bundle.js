@@ -143,12 +143,15 @@ var App = function App() {
 
   var changeDone = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(todo, bool) {
-      var res;
+      var last,
+          res,
+          _args3 = arguments;
       return regeneratorRuntime.wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              _context3.next = 2;
+              last = _args3.length > 2 && _args3[2] !== undefined ? _args3[2] : true;
+              _context3.next = 3;
               return fetch("https://todo-halo.herokuapp.com/todos/".concat(todo.id), {
                 method: 'PUT',
                 headers: {
@@ -160,12 +163,12 @@ var App = function App() {
                 })
               });
 
-            case 2:
+            case 3:
               res = _context3.sent;
-              if (res.ok) setChange(true);
+              if (res.ok && last) setChange(true);
               return _context3.abrupt("return", res.data);
 
-            case 5:
+            case 6:
             case "end":
               return _context3.stop();
           }
@@ -179,20 +182,22 @@ var App = function App() {
   }();
 
   var markAll = function markAll() {
-    todos.forEach(function (each) {
-      return changeDone(each, allTrue);
+    todos.forEach(function (each, idx) {
+      if (idx === todos.length - 1) changeDone(each, allTrue);else changeDone(each, allTrue, false);
     });
     setAllTrue(!allTrue);
   };
 
   var deleteItem = /*#__PURE__*/function () {
     var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(id) {
-      var res;
+      var last,
+          _args4 = arguments;
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              _context4.next = 2;
+              last = _args4.length > 1 && _args4[1] !== undefined ? _args4[1] : true;
+              _context4.next = 3;
               return fetch("https://todo-halo.herokuapp.com/todos/".concat(id), {
                 method: 'DELETE',
                 headers: {
@@ -200,9 +205,8 @@ var App = function App() {
                 }
               });
 
-            case 2:
-              res = _context4.sent;
-              if (res) setChange(true);
+            case 3:
+              if (last) setChange(true);
 
             case 4:
             case "end":
@@ -218,8 +222,11 @@ var App = function App() {
   }();
 
   var deleteAll = function deleteAll() {
-    todos.forEach(function (each) {
-      if (each.isDone) return deleteItem(each.id);
+    var filtered = todos.filter(function (each) {
+      return each.isDone;
+    });
+    filtered.forEach(function (each, idx) {
+      if (idx === filtered.length - 1) return deleteItem(each.id);else return deleteItem(each.id, false);
     });
   };
 
